@@ -1,5 +1,5 @@
 const server = require("./src/app")
-const database = require("./src/db")
+const { database } = require("./src/db")
 
 
 server.listen("3001", async () => {

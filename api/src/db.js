@@ -13,5 +13,7 @@ const database = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/
 PostModel(database)
 UserModel(database)
 
-
-module.exports = database
+module.exports = {
+    database,
+    ...database.models
+}
