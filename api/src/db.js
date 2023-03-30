@@ -13,6 +13,11 @@ const database = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/
 PostModel(database)
 UserModel(database)
 
+const {User, Post} = database.models
+
+Post.belongsTo(User)
+User.hasMany(Post)
+
 module.exports = {
     database,
     ...database.models
