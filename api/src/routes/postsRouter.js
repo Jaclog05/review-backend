@@ -18,7 +18,8 @@ postsRouter.post('/', async (req, res) => {
         if(!userId || !title || !content){
             throw new Error("Missing info")
         }else{
-            const post = await Post.create({userId, title, content})
+            const post = await Post.create({title, content})
+            post.setUser(userId)
             return res.status(200).json(post)
         }
     }catch(error){
